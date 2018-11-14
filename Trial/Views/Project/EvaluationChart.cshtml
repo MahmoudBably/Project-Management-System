@@ -1,0 +1,21 @@
+﻿
+<script type="text/javascript">
+    var alldata = JSON.parse('@ViewBag.AllData');
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart2);
+
+      function drawChart2() {
+
+          var evaluationchartdata = google.visualization.arrayToDataTable(alldata);
+
+        var options = {
+          title: 'Evaluation'
+        };
+
+        var chart3 = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart3.draw(evaluationchartdata, options);
+      }
+</script>
+<div id="piechart" style="width: 700px; height: 500px;"></div>
+

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Trial.Models.AssignedProjectViewModel>
+
+<div class="row not-assigned-project">
+    <div id="modal-container" class="modal fade"
+         tabindex="-1" role="dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+    <h2 class="project-title">ASSIGNED PROJECTS</h2><br /><br />
+
+    <table id="customerassigned" class="display">
+        <thead>
+            <tr>
+                <th>PROJECT NAME</th>
+                <th>PRICE</th>
+                <th>START DATE</th>
+                <th>SUBMIT DATE</th>
+                <th>DESCRIPTION</th>
+                <th>ASSIGNED TO</th>
+                <th>EDIT</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.Project.Name
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.Project.Price
+                        </div>
+                    </td>
+                   
+                    <td>
+                        <div class="col-sm-1">
+                            @item.Project.Shcedule_From
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.Project.Schedule_To
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="col-sm-1">
+                            @item.Project.Description
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.User.UserName
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            <a title="Edit" class="modal-link" href="@Url.Action("EditProject", "Project", new { id = item.Project.Id })">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </div>
+                    </td>
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+            $(document).ready(function () {
+                $("#customerassigned").DataTable();
+            });
+            $(function () {
+                // Initialize numeric spinner input boxes
+                //$(".numeric-spinner").spinedit();
+                // Initialize modal dialog
+                // attach modal-container bootstrap attributes to links with .modal-link class.
+                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+                $('body').on('click', '.modal-link', function (e) {
+                    e.preventDefault();
+                    $(this).attr('data-target', '#modal-container');
+                    $(this).attr('data-toggle', 'modal');
+                });
+                // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+                $('body').on('click', '.modal-close-btn', function () {
+                    $('#modal-container').modal('hide');
+                });
+                //clear modal cache, so that new content can be loaded
+                $('#modal-container').on('hidden.bs.modal', function () {
+                    $(this).removeData('bs.modal');
+                });
+                $('#CancelModal').on('click', function () {
+                    return false;
+                });
+            });
+    </script>
+
+</div>
+

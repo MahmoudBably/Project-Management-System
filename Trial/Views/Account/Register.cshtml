@@ -1,0 +1,43 @@
+﻿@model Trial.Models.RegisterViewModel
+@using Vereyon.Web
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form",enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+                    @Html.RenderFlashMessages()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Email" })<br />
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class= "text-danger"})
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "User Name" })<br />
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Password" })<br />
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Confirm Password" })<br />
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Fname, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "First Name" })<br />
+                    @Html.ValidationMessageFor(m => m.Fname, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Lname, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Last Name" })<br />
+                    @Html.ValidationMessageFor(m => m.Lname, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(m => m.Job_Description, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Tell Us About Yourself", @rows = "3" })<br />
+                    @Html.ValidationMessageFor(m => m.Job_Description, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.PhoneNum, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Phone Number" })<br />
+                    @Html.ValidationMessageFor(m => m.PhoneNum, "", new { @class = "text-danger" }) <br />
+                    @*@Html.Label("Choose Your Role", new { @class = " control-label", @style = "color:black;margin-right:80px;" })*@
+                    @Html.DropDownList("UserRoles", new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Customer",Value = "Customer",Selected=true },
+                            new SelectListItem {Text = "Junior Developer",Value = "Junior Developer" },
+                            new SelectListItem {Text = "Project Manager",Value = "Project Manager" },
+                            new SelectListItem {Text = "Team Leader",Value = "Team Leader" }
+                        }, new {@class="form-control" })<br /><br />
+                        
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-success" value="Sign Up" style="margin-left:-120px" />
+                        </div>
+                    </div>
+                   
+                  
+}

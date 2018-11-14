@@ -1,0 +1,21 @@
+﻿
+<script type="text/javascript">
+    var data = JSON.parse('@ViewBag.Data');
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+          var chartdata = google.visualization.arrayToDataTable(data);
+
+        var options = {
+          title: 'Projects'
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart1.draw(chartdata, options);
+      }
+</script>
+<div id="piechart2" style="width: 700px; height: 500px;"></div>
+

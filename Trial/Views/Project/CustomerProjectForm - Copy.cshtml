@@ -1,0 +1,40 @@
+﻿@model Trial.Models.Project
+<system.web>
+    <globalization culture="en-GB" />
+</system.web>
+@using (Html.BeginForm("CustomerProjectForm", "Project", FormMethod.Post))
+
+{
+<div class="row form-back form-pad">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3 modal-dialog mod-pos">
+        <div class="modal-content" id="modal-9">
+            <div class="modal-header mod-mail-head">
+                <h3 class="modal-title">Post A Project</h3>
+            </div>
+            <div class="modal-body modal-body-style-1">
+                
+
+                  
+                    @Html.TextBoxFor(m => m.Name, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Name" })<br /><br />
+                    @Html.EditorFor(m => m.Shcedule_From,new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Start Date" })<br /><br />
+                    @Html.EditorFor(m => m.Schedule_To, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Submit Date" })<br /><br />
+                    @Html.TextBoxFor(m => m.Price, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Price", @type = "number" })<br /><br />
+                    @Html.TextAreaFor(m => m.Description, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Description" ,@rows = "6"})<br />
+                    
+                  
+                
+
+                @*<br /><input id="inid1" class="in-style input-style form-control" type="text" placeholder="Project Name" /><br />
+                <input id="inid2" class="in-style input-style form-control" type="email" placeholder="Email" /><br />
+                <input class="in-style input-style form-control" type="number" placeholder="Price" /><br />
+                <input class="in-style input-style form-control" type="date" placeholder="Schedule" /><br />
+                <textarea id="inid3" class="in-style input-style form-control" placeholder="Job Describtion" rows="6"></textarea> <br /><br />*@
+            </div>
+            <div class="modal-footer mod-foot">
+                <input  id="Submit" value="Post" type="submit" class="put-in btn btn-success" data-toggle="modal" data-target="#modal-7" data-dismiss="modal">
+            </div>
+        </div>
+    </div>
+</div>
+}

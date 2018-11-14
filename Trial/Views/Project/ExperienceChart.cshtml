@@ -1,0 +1,46 @@
+﻿@if (User.IsInRole("Junior Developer"))
+{
+    <script type="text/javascript">
+    var expdata = JSON.parse('@ViewBag.ExpData');
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart3);
+
+      function drawChart3() {
+
+          var expchartdata = google.visualization.arrayToDataTable(expdata);
+
+        var options = {
+          title: 'Experience'
+        };
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('barchart'));
+
+        chart2.draw(expchartdata, options);
+      }
+    </script>
+    <div id="barchart" style="width: 1300px; height: 420px;"></div>
+}
+else
+{
+    <script type="text/javascript">
+    var expdata = JSON.parse('@ViewBag.ExpData');
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart3);
+
+      function drawChart3() {
+
+          var expchartdata = google.visualization.arrayToDataTable(expdata);
+
+        var options = {
+          title: 'Experience'
+        };
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('barchart'));
+
+        chart2.draw(expchartdata, options);
+      }
+    </script>
+    <div id="barchart" style="width: 700px; height: 380px;"></div>
+}
+
+

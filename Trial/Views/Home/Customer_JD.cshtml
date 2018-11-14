@@ -1,0 +1,231 @@
+﻿@model Trial.Models.ApplicationUser
+
+
+<div id="modal-container" class="modal fade"
+     tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+</div>
+
+<div class="row">
+   
+    <div class="col-sm-9 posts">
+
+        @if (User.IsInRole("Junior Developer"))
+        {
+            <br /><br />  <br /><br />   <br /><br />
+            <div id="someDiv2">
+            </div>
+            <button id="assigned">Assigned Projects</button>
+
+
+            <script>
+                $("#assigned").hide();
+                $(document).ready(function () {
+                    document.getElementById("assigned").click();
+                });
+                document.getElementById("assigned").onclick = function () { myFunction2() };
+                function myFunction2() {
+                    $("#someDiv2").load("@Html.Raw(Url.Action("UserAssignedProjects", "Project")) ")
+                 }
+            </script>
+
+            <br /><br />            <br /><br />
+
+            <div id="someDiv3">
+            </div>
+            <button id="delivered">Delivered Projects</button>
+
+            <script>
+            $("#delivered").hide();
+            $(document).ready(function () {
+                document.getElementById("delivered").click();
+            });
+            document.getElementById("delivered").onclick = function () { myFunction3() };
+            function myFunction3() {
+                $("#someDiv3").load("@Html.Raw(Url.Action("DeliveredProjects", "Project")) ")
+             }
+            </script>
+
+            <br /><br />            <br /><br />
+
+            <h2 class="project-title">STATISTICAL DIAGRAMS</h2>
+
+            <div id="someDiv4" style="margin-left:-100px;">
+            </div>
+            <button id="evaluationchart">Evaluation Chart</button>
+
+
+            <script>
+                $("#evaluationchart").hide();
+                $(document).ready(function () {
+                    document.getElementById("evaluationchart").click();
+                });
+                document.getElementById("evaluationchart").onclick = function () { myFunction4() };
+                function myFunction4() {
+                    $("#someDiv4").load("@Html.Raw(Url.Action("EvaluationChart", "Project")) ")
+                 }
+            </script>
+
+            <br /><br />            <br /><br />
+            <div id="someDiv5" style="margin-left:600px;margin-top:-570px;">
+            </div>
+            <button id="projectchart">Project Chart</button>
+
+
+            <script>
+                $("#projectchart").hide();
+                $(document).ready(function () {
+                    document.getElementById("projectchart").click();
+                });
+                document.getElementById("projectchart").onclick = function () { myFunction5() };
+                function myFunction5() {
+                    $("#someDiv5").load("@Html.Raw(Url.Action("ProjectChart", "Project")) ")
+                 }
+            </script>
+            <div id="someDiv8" style="margin-left:-100px;">
+
+
+            </div>
+            <button id="expchart">Experience Chart</button>
+
+
+            <script>
+                $("#expchart").hide();
+                $(document).ready(function () {
+                    document.getElementById("expchart").click();
+                });
+                document.getElementById("expchart").onclick = function () { myFunction8() };
+                function myFunction8() {
+                    $("#someDiv8").load("@Html.Raw(Url.Action("ExperienceChart", "Project")) ")
+                 }
+            </script>
+
+
+
+        }
+
+        else
+        {
+            <br /><br />  <br /><br />   <br /><br />
+            <div id="someDiv6">
+            </div>
+            <button id="customerassigned">Assigned Projects</button>
+
+            <script>
+            $("#customerassigned").hide();
+            $(document).ready(function () {
+                document.getElementById("customerassigned").click();
+            });
+            document.getElementById("customerassigned").onclick = function () { myFunction6() };
+            function myFunction6() {
+                $("#someDiv6").load("@Html.Raw(Url.Action("CustomerAssignedProjects", "Project")) ")
+             }
+            </script>
+
+            <br /><br />            <br /><br />
+
+            <div id="someDiv7">
+            </div>
+            <button id="customerdelivered">Delivered Projects</button>
+
+            <script>
+            $("#customerdelivered").hide();
+            $(document).ready(function () {
+                document.getElementById("customerdelivered").click();
+            });
+            document.getElementById("customerdelivered").onclick = function () { myFunction7() };
+            function myFunction7() {
+                $("#someDiv7").load("@Html.Raw(Url.Action("CustomerDeliveredProjects", "Project")) ")
+             }
+            </script>
+        }
+
+    </div>
+
+    <div class="col-sm-3 customer-info">
+        <img src="@Url.Action("Photo", "Account")" style="margin-left:100px;" class="img-circle img-responsive imgpos" width="200px" height="200px" />
+        <br />
+        <br />
+        <button id="change" class="btn btn-primary btn-block">Change Photo</button>
+        <div id="someDiv1">
+        </div>
+
+        <script>
+            document.getElementById("change").onclick = function () { myFunction1() };
+            function myFunction1() {
+                $("#someDiv1").toggle()
+                $("#someDiv1").load("@Html.Raw(Url.Action("ProfilePhoto", "Home")) ")
+            }
+        </script>
+        <br />
+        <br />
+        <p>Name: @Model.Fname  @Model.Lname</p><br /><br />
+        <p>Job Description: @Model.Job_Description </p><br /><br />
+        <p>Mobile: @Model.PhoneNum </p><br /><br />
+        <p>Email: @Model.Email </p><br /><br />
+        <a class="btn btn-primary btn-block" href="@Url.Action("ShowProfile", "Home")">Edit Profile</a><br />
+        <button id="changepassword" class="btn btn-primary btn-block">Change Password</button>
+        <div id="someDiv9">
+        </div>
+
+        <script>
+            document.getElementById("changepassword").onclick = function () { myFunction9() };
+            function myFunction9() {
+                $("#someDiv9").toggle()
+                $("#someDiv9").load("@Html.Raw(Url.Action("ChangePassword", "Account")) ")
+
+            }
+
+        </script>
+        @if (User.IsInRole("Customer"))
+        {
+            <hr class='dotted' style="border: 2px dotted #808080;border-style: none none dotted;color: #fff;background-color: #fff;width:340px;" />
+            <p>CONTROL PANEL </p><br />
+            <a class="btn btn-success btn-block" href="@Url.Action("CustomerProjectForm", "Project")">New Project</a><br />
+            <a class="btn btn-success btn-block" href="@Url.Action("CustomerUnassignedProjects", "Project")">My Un-Assigned Projects</a><br />
+        }
+        <br />
+        @if (User.IsInRole("Junior Developer"))
+        {
+            <a class="btn btn-primary btn-block" href="@Url.Action("ShowExperience", "Home")">Experience</a><br />
+            <hr class='dotted' style="border: 2px dotted #808080;border-style: none none dotted;color: #fff;background-color: #fff;width:340px;" />
+            <p>CONTROL PANEL </p><br />
+            <a class="btn btn-success btn-block" href="@Url.Action("SeeProjectRequests", "Project")">Requests</a><br />
+
+
+        }
+
+    </div>
+    
+</div>
+
+
+
+
+
+<script>
+    $(function () {
+        // Initialize numeric spinner input boxes
+        //$(".numeric-spinner").spinedit();
+        // Initialize modal dialog
+        // attach modal-container bootstrap attributes to links with .modal-link class.
+        // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+        $('body').on('click', '.modal-link', function (e) {
+            e.preventDefault();
+            $(this).attr('data-target', '#modal-container');
+            $(this).attr('data-toggle', 'modal');
+        });
+        // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+        $('body').on('click', '.modal-close-btn', function () {
+            $('#modal-container').modal('hide');
+        });
+        //clear modal cache, so that new content can be loaded
+        $('#modal-container').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+        });
+        $('#CancelModal').on('click', function () {
+            return false;
+        });
+    });
+</script>

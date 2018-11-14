@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Trial.Models.DeliveredProjectViewModel>
+
+<div class="row not-assigned-project">
+    <h2 class="project-title">DELIVERED PROJECTS</h2><br /><br />
+
+    <table id="customerdelivered" class="display">
+        <thead>
+            <tr>
+                <th>PROJECT NAME</th>
+                <th>PRICE</th>
+                <th>SUBMIT DATE</th>
+                <th>DESCRIPTION</th>
+                <th>DELIVERED BY</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.ProjectHistory.Name
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.ProjectHistory.Price
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.ProjectHistory.Schedule_To
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="col-sm-1">
+                            @item.ProjectHistory.Description
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-1">
+                            @item.User.UserName
+                        </div>
+                    </td>
+
+
+
+              </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+            $(document).ready(function () {
+                $("#customerdelivered").DataTable();
+            });
+
+    </script>
+
+</div>
+

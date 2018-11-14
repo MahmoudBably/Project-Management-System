@@ -1,0 +1,56 @@
+﻿@model Trial.Models.ApplicationUser
+
+@using (Html.BeginForm("EditProfile", "Home"))
+{
+    @Html.AntiForgeryToken()
+    <br /><br /><br />
+    <div class="row register-admin">
+        <div class=" form-pad">-</div>
+        <div style="padding-bottom: 30px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div class="modal-body" style="background-color: #;">
+                    <br />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.Label("User Name:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "User Name" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    <br /><br />
+
+                    @Html.Label("First Name:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.Fname, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "First Name" })
+                    @Html.ValidationMessageFor(m => m.Fname, "", new { @class = "text-danger" })
+                    <br /><br />
+
+                    @Html.Label("Last Name:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.Lname, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(m => m.Lname, "", new { @class = "text-danger" })
+                    <br /><br />
+
+                    @Html.Label("Tell Us About Yourself:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.Job_Description, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Tell Us About Yourself" })
+                    @Html.ValidationMessageFor(m => m.Job_Description, "", new { @class = "text-danger" })
+                    <br /><br />
+                    @Html.Label("Phone Number:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.PhoneNum, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Phone Number" })
+                    @Html.ValidationMessageFor(m => m.PhoneNum, "", new { @class = "text-danger" })
+                    <br /><br />
+                    @Html.Label("Email:", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    <br /><br /><br />
+                </div>
+                <div class="modal-footer" style="margin-bottom:50px;">
+                    <input type="submit" class="put-in btn btn-succes" value="Save" />
+                    <a href="ManageUsers" class="put-in btn btn-default" data-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section footer{
+    <footer class="row subsection subsection-three navbar-fixed-bottom">
+        <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+    </footer>
+}

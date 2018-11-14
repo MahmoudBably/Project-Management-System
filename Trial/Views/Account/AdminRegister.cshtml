@@ -1,0 +1,62 @@
+﻿@model Trial.Models.RegisterViewModel
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row register-admin">
+        <div class=" form-pad">-</div>
+        <div style="padding-bottom: 30px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div class="modal-body" style="background-color: #;">
+                    <br /><br /><br />
+                    @Html.TextBoxFor(m => m.Email, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(u => u.Email, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "User Name" })
+                    @Html.ValidationMessageFor(u => u.UserName, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Password" })
+                    @Html.ValidationMessageFor(u => u.Password, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Confirm Password" })
+                    @Html.ValidationMessageFor(u => u.ConfirmPassword, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.TextBoxFor(m => m.Fname, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "First Name" })
+                    @Html.ValidationMessageFor(u => u.Fname, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.TextBoxFor(m => m.Lname, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(u => u.Lname, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.TextAreaFor(m => m.Job_Description, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "About the user", @rows = "6" })
+                    @Html.ValidationMessageFor(u => u.Job_Description, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.TextBoxFor(m => m.PhoneNum, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Phone Number" })
+                    @Html.ValidationMessageFor(u => u.PhoneNum, "", new { @style = "color:#B99867" })
+                    <br />
+                    @Html.Label("Choose Role", new { @class = " control-label", @style = "color:white;float:left;font-family:HelveticaNeue-Light" })
+                    @Html.DropDownList("UserRoles", new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Customer",Value = "Customer",Selected=true },
+                            new SelectListItem {Text = "Junior Developer",Value = "Junior Developer" },
+                            new SelectListItem {Text = "Project Manager",Value = "Project Manager" },
+                            new SelectListItem {Text = "Team Leader",Value = "Team Leader" }
+                        }, new { @style = "width:320px;margin-top:8px;float:right" })<br /><br />
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="put-in btn btn-succes" value="Register" />
+                    <a href="ManageUsers" class="put-in btn btn-default" data-dismiss="modal">Cancel</a>
+
+                </div><br />     <br /><br />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section footer{
+    <footer class="row subsection subsection-three navbar-fixed-bottom">
+        <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+    </footer>
+}

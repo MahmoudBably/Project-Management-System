@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @if (User.IsInRole("Admin") | User.IsInRole("Project Manager") | User.IsInRole("Team Leader"))
+                    {
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Admin_PM_TL","Home", routeValues: null, htmlAttributes: new { @class = "nav-link title", @style ="margin-right:20px;"})
+
+
+                }
+                @if (User.IsInRole("Customer") | User.IsInRole("Junior Developer"))
+                    {
+                   @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Customer_JD", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link title", @style = "margin-right:20px;" })
+
+
+                }
+             
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link title" style="margin-right:30px;">Log off</a></li>
+        </ul>
+        <div style="position:absolute">
+            <img src="@Url.Action("Photo", "Account")" class="img-circle imgpos" style="width:45px;height:45px;margin-top:2px;margin-left:-25px;" />
+
+        </div>
+        
+    }
+}
+

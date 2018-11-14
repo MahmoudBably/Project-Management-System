@@ -1,0 +1,181 @@
+﻿.put-in{
+    float: left;
+}
+
+.banner{
+    color: #B99867;
+    font-family: Langdon;
+    font-size: 100px;
+    padding-top: 330px;
+}
+
+.slide-down{
+    font-family: Cabin;
+    text-align: center;
+    color: wheat;
+    background: transparent;
+    border-color: #283345;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 170px;
+    margin-bottom: 190px;
+}
+
+.target{
+    margin-left: 60px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+li a{
+    display: inline;
+    margin-left: 30px;
+}
+
+.secOne{
+    background-image: url("../Bikes/business.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 -50px 30px -50px black;
+    background-attachment: fixed;
+}
+
+.collection{
+    font-size: 50px;
+    color: #283345;
+    font-family: Cabin;
+}
+
+.subsection-one{
+    margin-bottom: 20px;
+}
+
+.back-color {
+    background-color: #e5e5e5;
+}
+
+.duty{
+    text-align: left;
+    font-family: Langdon;
+    font-size: 45px;
+    color: #283345;
+    width: 300px;
+}
+
+.read-button{
+    border-radius: 5px;
+    border-width: 1px;
+    font-family: Cabin;
+    text-align: center;
+    color: #B99867;
+    background: transparent;
+    border-color: #283345;
+    width: 230px;
+    height: 56px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+
+.view-collection{
+    border-radius: 5px;
+    border-width: 1px;
+    font-family: Cabin;
+    text-align: center;
+    color: #B99867;
+    background: transparent;
+    border-color: #283345;
+    width: 230px;
+    height: 56px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 60px;
+}
+
+.speach-text{
+    line-height: 55px;
+    font-style: italic;
+    font-family: Cabin;
+    font-size: 35px;
+    color: wheat;
+}
+
+.bike-head{
+    text-align: left;
+    font-family: Cabin;
+    font-size: 70px;
+    color: #283345;
+}
+
+.hugh-text{
+    align-content: center;
+    text-align: left;
+    width: 500px;
+    font-family: Cabin;
+    font-size: 30px;
+    color: #696867;
+}
+
+.gutter-back {
+    background-image:url("../Bikes/workandcoffee.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+.img-text {
+    color: #B99867;
+    font-family: Cabin;
+    font-size: 37px;
+    margin-top: 90px;
+    text-align: left;
+}
+
+.img-head {
+    font-family: Langdon;
+    font-weight: bold;
+    font-size: 70px;
+    color: #B99867;
+    margin-bottom: 260px;
+    text-align: left;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.bike-head2{
+    text-align: left;
+    font-family: Cabin;
+    font-size: 60px;
+    color: #283345;
+}
+
+.girl-text{
+    text-align: left;
+    float: left;
+    width: 500px;
+    margin-top: 35px;
+    font-family: Cabin;
+    font-size: 30px;
+    color: #696867;
+}
+
+.shop-button{
+    border-radius: 5px;
+    border-width: 1px;
+    font-family: Cabin;
+    text-align: center;
+    color: #B99867;
+    background: transparent;
+    border-color: #283345;
+    width: 230px;
+    height: 56px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}

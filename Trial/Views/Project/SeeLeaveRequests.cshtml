@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Trial.Models.RequestViewModel>
+<br /><br /><br />
+<div class="row not-assigned-project">
+    <h1 class="row manage-title">Leave Requests</h1><br /><br />
+
+    <table id="seerequests" class="display">
+        <thead>
+            <tr>
+                <th>USER NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
+                <th>PROJECT NAME</th>
+                <th>PROJECT DESCRPITION</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @item.User.UserName
+                    </td>
+
+                    <td>
+                        @item.User.Email
+                    </td>
+                    <td>
+                        @item.User.PhoneNum
+                    </td>
+                    <td>
+                        @item.Project.Name
+                    </td>
+                    <td>
+                        @item.Project.Description
+                    </td>
+                  
+
+                    <td>
+                        <a title="Accept Request" style="text-decoration:none;" class="accept" href="@Url.Action("AcceptLeave", "Project", new { id = item.Project.Id, memberId = item.Request.FromUserId})">
+                            <span class="glyphicon glyphicon-ok"></span>
+
+                        </a>
+                        &emsp;
+                        <a title="Reject Request" style="text-decoration:none;" class="reject" href="@Url.Action("RejectLeave", "Project", new { id = item.Project.Id, memberId = item.Request.FromUserId })">
+                            <span class="glyphicon glyphicon-remove"></span>
+
+                        </a>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script>
+            $(document).ready(function () {
+                $("#seerequests").DataTable();
+            });
+
+            $('.accept').click(function (e) {
+
+                e.preventDefault();
+                $.ajax({
+
+                    url: $(this).attr("href"),
+                    success: function () {
+                        var NestId = $(this).data('id');
+                        toastr.success('Request Accepted, The User Has Been Removed From The Project!');
+                    }
+
+                });
+
+
+            });
+            $('.reject').click(function (e) {
+
+                e.preventDefault();
+                $.ajax({
+
+                    url: $(this).attr("href"),
+                    success: function () {
+                        var NestId = $(this).data('id');
+                        toastr.error('Request Has Been Rejected!');
+                    }
+
+                });
+
+
+            });
+
+    </script>
+
+</div>
+
+
+@section footer{
+    <footer class="row subsection subsection-three navbar-fixed-bottom">
+        <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+    </footer>
+}

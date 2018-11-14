@@ -1,0 +1,41 @@
+﻿@model Trial.Models.Experience
+<br /><br /><br />
+@using (Html.BeginForm("EditExperience", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="row register-admin">
+        <div class=" form-pad">-</div>
+        <div style="padding-bottom: 30px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div class="modal-body" style="background-color: #;">
+                    <br />
+                    @Html.Label("ASP NET MVC", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.ASPNETMVC, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "User Name", @type = "number" })<br /><br />
+                    @Html.Label("JavaScript", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.JavaScript, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "First Name", @type = "number" })<br /><br />
+                    @Html.Label("JQuery", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.JQuery, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Last Name", @type = "number" })<br /><br />
+                    @Html.Label("HTML5", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.HTML5, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Tell Us About Yourself", @type = "number" })<br /><br />
+                    @Html.Label("PHP", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.PHP, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Phone Number", @type = "number" })<br /><br />
+                    @Html.Label("JAVA", new { @class = " control-label", @style = "background-color: transparent;color:white" })
+                    @Html.TextBoxFor(m => m.JAVA, new { @class = "input-style form-control", @style = "background-color: transparent;color:white", @placeholder = "Email", @type = "number" })<br /><br />
+                </div>
+                <div class="modal-footer" style="margin-bottom:50px;">
+                    <input type="submit" class="put-in btn btn-succes" value="Save" />
+                    <a href="ManageUsers" class="put-in btn btn-default" data-dismiss="modal">Cancel</a>
+                </div><br />
+            </div>
+        </div>
+    </div>
+}
+
+@section footer{
+   <footer class="row subsection subsection-three">
+    <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+</footer>
+}

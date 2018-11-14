@@ -1,0 +1,43 @@
+.imgpos{
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.admin-info{
+    font-family: Cabin;
+    font-size: 20px;
+    color: #283345;
+    border-right: 5px solid;
+    border-right-color: #B99867;
+    margin-bottom: 100px;
+}
+
+.customer-info{
+    font-family: Cabin;
+    font-size: 20px;
+    color: #283345;
+    border-left: 5px solid;
+    border-left-color: #B99867;
+    margin-bottom: 100px;
+}
+
+.manage-title {
+    font-family: Langdon;
+    font-size: 60px;
+    color: #B99867;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: #283345;
+    
+}
+
+.table-head{
+    font-family: Langdon;
+    color: #283345;
+}
+
+.register-admin{
+    background-image: url(../Bikes/_2Main.jpg);
+    background-size: cover;
+    background-color: ;
+}

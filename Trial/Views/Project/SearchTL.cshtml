@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Trial.Models.ApplicationUser>
+
+<table id="tl" class="display">
+    <thead>
+        <tr>
+            <th>USER NAME</th>
+            <th>EMAIL</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>PHONE NUMBER</th>
+            <th>ABOUT THE USER</th>
+            <th>INVITE</th>
+        </tr>
+    </thead>
+
+    <tbody>
+       
+        @foreach (var item in Model)
+            {
+            <tr>
+            @if (!ViewBag.TLId)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job_Description)
+                </td>
+
+                <td>
+                    <a title="Invite" class="requestjoin" href="@Url.Action("RequestToJoin", "Project", new { projectid = ViewBag.projectid, userid = item.Id })">
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                    </a>
+                </td>
+            }
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script>
+        $(document).ready(function () {
+            $("#tl").DataTable();
+
+        });
+
+
+        $('.requestjoin').click(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+
+                url: $(this).attr("href"),
+                success: function () {
+                    toastr.success('Request Has Been Sent Successfully!');
+                    var NestId = $(this).data('id');
+                }
+
+            }
+            );
+
+
+        });
+
+
+</script>

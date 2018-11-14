@@ -1,0 +1,109 @@
+﻿@model Trial.Models.Feedback
+
+<div class="modal-header">
+
+    <h3>EVALUATION</h3>
+</div>
+
+<div class="modal-body" style="text-align:left;">
+
+    @using (Html.BeginForm("EvaluateUser", "Project", new { id = ViewBag.projectid, memberid = ViewBag.userid }, FormMethod.Post))
+    {
+        <div class="row">
+            <p>
+                <b>Communication</b> - Measures effectiveness in listening to<br />
+                others, expressing ideas, both orally and in writing and <br />
+                providing relevant and timely information to management,<br />
+                co-workers, subordinates and customers.
+            </p>
+            @Html.DropDownListFor(m => m.Communication, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Poor",Value = "1",Selected=true },
+                            new SelectListItem {Text = "Average",Value = "2" },
+                            new SelectListItem {Text = "Good",Value = "3" },
+                            new SelectListItem {Text = "Very Good",Value = "4" },
+                            new SelectListItem {Text = "Excellent",Value = "5" }
+                        })<br /><br />
+
+            <p>
+                <b>Team Work</b> - Measures how well this individual gets along<br />
+                with fellow employees, respects the rights of other<br />
+                employees and show a cooperative spirit.
+            </p>
+            @Html.DropDownListFor(m => m.TeamWork, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Poor",Value = "1",Selected=true },
+                            new SelectListItem {Text = "Average",Value = "2" },
+                            new SelectListItem {Text = "Good",Value = "3" },
+                            new SelectListItem {Text = "Very Good",Value = "4" },
+                            new SelectListItem {Text = "Excellent",Value = "5" }
+                        })<br /><br />
+
+            <p>
+                <b>Decision Making/Problem Solving</b> - Measures effectiveness in understanding<br />
+                problems and making timely, practical decisions.
+            </p>
+            @Html.DropDownListFor(m => m.ProblemSolving, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Poor",Value = "1",Selected=true },
+                            new SelectListItem {Text = "Average",Value = "2" },
+                            new SelectListItem {Text = "Good",Value = "3" },
+                            new SelectListItem {Text = "Very Good",Value = "4" },
+                            new SelectListItem {Text = "Excellent",Value = "5" }
+                        })<br />
+            <p>
+                <b>Knowledge Of Work</b> - Consider employee's skill level,<br />
+                knowledge and understanding of all phaes of the job and<br />
+                those requiring  improved skills and/or experience.
+            </p>
+            @Html.DropDownListFor(m => m.WorkKnowledge, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Poor",Value = "1",Selected=true },
+                            new SelectListItem {Text = "Average",Value = "2" },
+                            new SelectListItem {Text = "Good",Value = "3" },
+                            new SelectListItem {Text = "Very Good",Value = "4" },
+                            new SelectListItem {Text = "Excellent",Value = "5" }
+                        })<br />
+
+            <p>
+                <b>Independant Action</b> - Measures effectiveness in time<br />
+                management; initiative and independant action within <br />
+                prescribed limits.
+            </p>
+            @Html.DropDownListFor(m => m.IndependantAction, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Poor",Value = "1",Selected=true },
+                            new SelectListItem {Text = "Average",Value = "2" },
+                            new SelectListItem {Text = "Good",Value = "3" },
+                            new SelectListItem {Text = "Very Good",Value = "4" },
+                            new SelectListItem {Text = "Excellent",Value = "5" }
+                        })<br />
+
+            <br />
+
+            @Html.TextAreaFor(m => m.FeedbackDesc, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Feedback", @rows = "6" })<br />
+            &nbsp;
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" class="btn btn-default modal-close-btn"
+                        data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="submit" id="approve-btn"
+                        class="btn btn-danger">
+                    Save
+                </button>
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#approve-btn').click(function () {
+            $('#modal-container').modal('hide');
+        });
+    });
+</script>
+
+

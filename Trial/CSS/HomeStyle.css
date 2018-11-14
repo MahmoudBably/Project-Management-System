@@ -1,0 +1,40 @@
+﻿.empty-class {
+    font-size: 16px;
+}
+
+.mail-message{
+    font-family: Cabin;
+    color: #9e4b43;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.form-back {
+    background-image:url("../Bikes/Formback.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mod-pos {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.mod-foot {
+    background-color: #283345;
+}
+
+.not-assigned-project {
+    padding-top: 10px;
+}
+
+.project-title {
+    font-family: Langdon;
+    font-size: 60px;
+    color: #283345;
+}
+
+.project-section {
+    height: 660px;
+    background-color: #e5e5e5;
+}

@@ -1,0 +1,41 @@
+﻿@model Trial.Models.Project
+<br /><br />
+<system.web>
+    <globalization culture="en-GB" />
+</system.web>
+@using (Html.BeginForm("CustomerProjectForm", "Project", FormMethod.Post))
+
+{
+<div style="margin-bottom:-50px;" class="row form-back form-pad">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3 modal-dialog mod-pos">'
+    <br />
+        <div class="modal-content" id="modal-9">
+            <div class="modal-header mod-mail-head">
+                <h3 class="modal-title">Post A Project</h3>
+            </div>
+            <div class="modal-body modal-body-style-1">
+                
+                    @Html.TextBoxFor(m => m.Name, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Name" })<br /><br />
+                <br /><br /><br /><br />
+                    @Html.TextAreaFor(m => m.Description, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Description" ,@rows = "6"})<br />
+                    
+                  
+
+            </div>
+            <div class="modal-footer mod-foot">
+                <input type="submit" class="put-in btn btn-success" value="Post" />
+            </div>
+        </div>
+       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+</div>
+}
+
+
+
+@section footer{
+    <footer class="row subsection subsection-three">
+        <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+    </footer>
+}

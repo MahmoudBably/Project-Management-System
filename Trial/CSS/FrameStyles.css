@@ -1,0 +1,89 @@
+*{
+	text-align: center;
+}
+.subsection3{
+    background-color: #283345;
+}
+
+.subsection6{
+    height: 10%;
+    background-color: #B99867;
+}
+
+.sign-up{
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.slogan-position{
+    font-family: Cabin;
+    font-size: 40px;
+    color: #B99867;
+    text-decoration: none;
+    margin-left: 60px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.n-color{
+    background-color: whitesmoke;
+}
+
+.title-2{
+    margin-top: 14px;
+}
+
+.title{
+    font-family: Arial;
+    font-size: 16px;
+    color: #B99867;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.title:hover{
+    color: #B99867;
+    text-decoration: none;
+    background-color: white;
+}
+
+.modal-header{
+    background-color: #283345;
+    color: #B99867;
+}
+
+.subsection-three{
+    background-color: #283345;
+    justify-content: center;
+}
+
+.subscribe-button{
+    border: solid 1px;
+    border-radius: 5px;
+    width: 100px;
+    height: 39px;
+    font-family: Cabin;
+    text-align: center;
+    color: #283345;
+    background-color: #B99867;
+    margin-left: 10px;
+    margin-bottom: 100px;
+}
+
+.in-style, .in-style-2{
+    text-align: left;
+}
+
+.media{
+    margin-left: 30px;
+}
+
+.links-position{
+    margin-top: 20px;;
+}
+
+.input-style{
+    text-align: left;
+}

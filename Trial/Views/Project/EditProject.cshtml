@@ -1,0 +1,67 @@
+﻿@model Trial.Models.Project
+
+
+
+<div class="modal-body">
+    <div class="row modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>EDIT PROJECT</h3>
+    </div>
+
+   @using (Html.BeginForm("EditProject", "Project",FormMethod.Post))
+   {
+        <div class="row">
+            <br />
+            @if (User.IsInRole("Project Manager"))
+            {
+                @Html.Label("Start Date", new { @class = " control-label", @style = "color:black;margin-right:80px;" })
+
+                @Html.EditorFor(m => m.Shcedule_From, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Start Date" })<br /><br />
+                @Html.Label("Submit Date", new { @class = " control-label", @style = "color:black;margin-right:65px;" })
+
+                @Html.EditorFor(m => m.Schedule_To, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Submit Date" })<br /><br />
+                @Html.Label("Price", new { @class = " control-label", @style = "color:black;margin-right:80px;" })
+
+                @Html.TextBoxFor(m => m.Price, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Price", @type = "number" })<br /><br />
+
+            }
+            else
+            {
+                @Html.TextBoxFor(m => m.Name, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Name" })<br /><br />
+
+                        @*@Html.DropDownListFor(m => m.CustomerId, (IEnumerable<SelectListItem>)ViewBag.Names, new { @class = "form-control" })
+
+
+                    @Html.EditorFor(m => m.Shcedule_From, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Start Date" })<br /><br />
+
+                    @Html.EditorFor(m => m.Schedule_To, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Submit Date" })<br /><br />
+
+                    @Html.TextBoxFor(m => m.Price, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Project Price", @type = "number" })<br /><br />*@
+
+                        @Html.TextAreaFor(m => m.Description, new { @class = "input-style form-control", @style = "background-color: transparent;", @placeholder = "Description", @rows = "6" })<br />
+
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="submit" id="approve-btn"
+                        class="btn btn-primary">
+                    Save
+                </button>
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#approve-btn').click(function () {
+            $('#modal-container').modal('hide');
+            toastr.success('Project Has Been Edited!');
+        });
+    });
+</script>
+

@@ -1,0 +1,169 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Main Page";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("Customer"))
+    {
+        @Html.Partial("~/Views/Project/CustomerProjectForm.cshtml")
+    }
+
+
+
+    <button id="unassigned">Unassigned Projects</button>
+    <div id="someDiv">
+    </div>
+
+    <script>
+        $("#unassigned").hide();
+        $(document).ready(function () {
+            document.getElementById("unassigned").click();
+        });
+        document.getElementById("unassigned").onclick = function () { myFunction() };
+        function myFunction() {
+            $("#someDiv").load("@Html.Raw(Url.Action("UnassignedProjects", "Project")) ")
+        }
+    </script>
+
+}
+
+
+else
+{
+    @section Loginbtn {
+        <li><button class="btn btn-link sign-up" data-toggle="modal" data-target="#modal-1">LOG IN</button></li>
+    }
+
+    @section Popups{
+
+<div class="modal fade" id="modal-2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">LOG IN</h3>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("~/Views/Account/Login.cshtml")
+                Not a member yet?
+                <a href="" class="btn btn-link" data-toggle="modal" data-target="#modal-1" data-dismiss="modal">SIGN UP</a>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ***************************** End LogIn Form ******************************** -->
+
+<div class="modal fade" id="modal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">SIGN UP</h3>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("~/Views/Account/Register.cshtml")
+                
+                Already a member ?
+                <a href="" class="btn btn-link" data-toggle="modal" data-target="#modal-2" data-dismiss="modal">LOG IN</a>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- ***************************** End Register Form ******************************** -->
+
+    }
+    @section Guest{
+
+        <div class="row secOne">
+            <h1 class="banner">ARE YOU LOOKING FOR A DEVELOPER ?<br />JOBY IS AT YOUR SERVICE!</h1>
+            <button class="slide-down">Get Started</button>
+        </div>
+
+        <!-- ***************************** End First Row ******************************** -->
+
+        <div class="row subsection-one" id="#goto">
+            <div class="coll-place">
+                <p class="collection">OUR CATEGORIES</p>
+                <img class="target" src="~/Bikes/Camera.png" width="155px" height="155px" />
+                <img class="target" src="~/Bikes/Economic.png" width="155px" height="155px" />
+                <img class="target" src="~/Bikes/Writing.png" width="150px" height="150px" /><br />
+                <a href="Shop.html"><button class="view-collection">VIEW MORE</button></a>
+            </div>
+        </div>
+
+        <!-- ***************************** End Second Row ******************************** -->
+
+        <div class="row no-gutter back-color">
+            <div class="col-lg-6 ">
+                <img class="img-responsive" src="~/Bikes\DarkMain.jpg" />
+            </div>
+            <div class="col-lg-1 padel-position">
+            </div>
+            <div class="col-lg-4 duty">
+                our duty is to help<br /></b>you finish your job in<br />a simple &amp; easy way<br />&amp; offer you the best price</b>.<br />
+                <button class="read-button">About Us</button>
+            </div>
+        </div>
+
+        <!-- ***************************** End Third Row ******************************** -->
+
+        <div class="row subsection3">
+            <p class="speach-text"><b>"</b><br />JOBY is the best place to find the job that fits<br />with the best salary &amp; lowest fees.</p><br />
+        </div>
+
+        <!-- ***************************** End Forth Row ******************************** -->
+
+        <div class="row no-gutter gutter-back">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-5">
+                <p class="img-text">JOBY Is Always Trying To Help<br />Every Business Owner<br />&amp; Every Worker To Find What<br />Fits Them All!</p>
+                <br /><br /><h1 class="img-head">JOBY AT YOUR SERVICE!</h1>
+            </div>
+        </div>
+        <!-- ***************************** End Fifth Row ******************************** -->
+
+    }
+}
+
+@if (Request.IsAuthenticated)
+{
+    @section footer{
+        @if (User.IsInRole("Customer"))
+        {
+            <footer class="row subsection subsection-three navbar-fixed-bottom">
+                <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+            </footer>
+        }
+        else
+        {
+            <footer class="row subsection subsection-three navbar-fixed-bottom">
+                <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+            </footer>
+        }
+
+
+    }
+}
+else
+{
+
+    @section footer{
+      <footer class="row subsection subsection-three navbar-fixed-bottom">
+        <div style="padding-top:20px;padding-bottom:20px;color:#B99867;background-color:#283345;" class="col-lg-12">All Copyrights Reserved 2017 | JOBY Development Team.</div>
+    </footer>
+    }
+}

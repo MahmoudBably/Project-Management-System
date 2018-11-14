@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Trial.Models.DeliveredProjectViewModel>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h2 class="row manage-title">TEAM</h2>
+</div>
+<div id="modal-container2" class="modal fade" tabindex="-1" role="dialog" style="width:700px;height:900px;margin-left:500px;">
+    <div class="modal-content">
+    </div>
+</div>
+
+
+<table id="team" class="display">
+    <thead>
+        <tr>
+            <th>USER NAME</th>
+            <th>EMAIL</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>PHONE NUMBER</th>
+            @if (User.IsInRole("Team Leader"))
+            {
+                <th>EVALUATE</th>
+
+            }
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Fname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Lname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.PhoneNum)
+                </td>
+
+
+                @if (User.IsInRole("Team Leader"))
+                {
+
+                    <td>
+                        @if (item.User.Id != ViewBag.pmid)
+                    {
+                            <a title="Evalute User" class="modal-link" href="@Url.Action("EvaluateUser", "Project", new { id = item.ProjectHistory.Id, memberid = item.User.Id })">
+                                <span class="glyphicon glyphicon-star"></span>
+                            </a>
+                        }
+                    </td>
+
+
+                }
+
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script>
+        $(document).ready(function () {
+            $("#team").DataTable();
+        });
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+            // Initialize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container2');
+            });
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-dismiss', 'modal');
+            });
+
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container2').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+                $('#modal-container').modal('show');
+            });
+
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+</script>
